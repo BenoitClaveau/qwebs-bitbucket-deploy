@@ -1,0 +1,39 @@
+{
+    "name": "qwebs-bitbucket-deploy",
+    "version": "0.1.47",
+    "description": "Qwebs webhook service to deploy from bitbucket.",
+    "main": "index.js",
+    "dependencies": {
+        "qwebs": "^0.1.47",
+        "pm2": "latest"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BenoitClaveau/qwebs-bitbucket-deploy.git"
+    },
+    "keywords": [
+        "qwebs",
+        "deploy",
+        "deployment",
+        "bitbucket",
+        "git",
+        "webhook",
+        "webhooks",
+        "service",
+        "webserver",
+        "web"
+    ],
+    "author": {
+        "name": "Benoît Claveau",
+        "email": "benoit.claveau@gmail.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/BenoitClaveau/qwebs-bitbucket-deploy/issues"
+    },
+    "homepage": "https://github.com/BenoitClaveau/qwebs-bitbucket-deploy"
+}
