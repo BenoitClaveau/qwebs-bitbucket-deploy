@@ -11,23 +11,37 @@ Qwebs webhook service to deploy from bitbucket.
 {
   "bitbucket": {
     "deployment": {
-      "master": {
-        "comment": regex to start deployement,
-        "pm2": {
-          "application": "myapp"
-        }
+      "master": { //branche name (optional)
+        "regex": /prod version \d+.\d+.\d+/g //define a pattern in comments (optional)
       }
     }
   },
 }
 ```
 
+### Override default behaviour
+
+const BitbucketService = require("qwebs-bitbucket-deploy");
+const process = require("process");
+
+class MyBitbucketService extends BitbucketService {
+  constructor($qwebs, $config) {
+    super($qwebs, $config);
+  };
+
+  restart() {
+      process.stop(-1);
+  }
+};
+
+exports = module.exports = MyBitbucketService;
+
 ### Declare and inject $auth
 
 ```route.json
 {
     "services": [
-        { "name": "$bitbucket", "location": "qwebs-bitbucket-deploy" }
+        { "name": "$bitbucket", "location": "my-bitbucket-deploy" }
     ],
     "locators": [
         { "post": "/api/bitbucket", "service": "$bitbucket", "method": "webhook" }
