@@ -30,7 +30,7 @@ class MyBitbucketService extends BitbucketService {
   };
 
   restart() {
-      process.stop(-1);
+      process.exit(1);
   }
 };
 
