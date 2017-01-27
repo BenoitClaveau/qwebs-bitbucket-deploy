@@ -12,11 +12,21 @@ const BitbucketService = require("qwebs-bitbucket-deploy");
 const process = require("process");
 
 class MyBitbucketService extends BitbucketService {
-  constructor($qwebs, $config) {
-    super($qwebs, $config);
+  constructor() {
+    super();
   };
 
+  /* return boolean */
+  startDeployement(comments) {
+    return comments.reduce((previous, current) => {
+      //find a comment like 'prod version 1.0.3'
+      return previous || /prod version \d+.\d+.\d+/g.test(current);
+    }, false);
+  }
+
   restart() {
+      //just stop the process
+      //if we use pm2, the process will be automatically restarted
       process.exit(1);
   }
 };
@@ -40,6 +50,8 @@ exports = module.exports = MyBitbucketService;
 ## API
 
   * webhook(request, response)
+  * startDeployement(Array comments) : boolean
+  * restart()
 
 ## Installation
 
