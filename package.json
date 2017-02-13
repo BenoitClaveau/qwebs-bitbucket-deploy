@@ -1,10 +1,10 @@
 {
     "name": "qwebs-bitbucket-deploy",
-    "version": "0.1.65",
+    "version": "0.1.66",
     "description": "Qwebs webhook service to deploy from bitbucket.",
     "main": "index.js",
     "dependencies": {
-        "qwebs": "^0.1.65",
+        "qwebs": "^0.1.66",
         "pm2": "latest"
     },
     "devDependencies": {},
